@@ -8,9 +8,9 @@
     },
     "repository": {
       "type": "git",
-      "url": "https://github.com/fbsamples/messenger-platform-samples.git"
+      "url": "https://github.com/sikandre/Messenger-bot.git"
     },
-    "author": "Facebook",
+    "author": "Timwe tech: Andre Mendes",
     "license": "ISC",
     "dependencies": {
       "body-parser": "^1.15.0",
