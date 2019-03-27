@@ -1,5 +1,6 @@
 'use strict';
 
+var request = require('request');
 // Imports dependencies and set up http server
 const
   express = require('express'),
