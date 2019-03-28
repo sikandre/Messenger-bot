@@ -1,18 +1,3 @@
-/**
- * Copyright 2017-present, Facebook, Inc. All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- *
- *
- * Starter Project for Messenger Platform Quick Start Tutorial
- *
- * Use this project as the starting point for following the 
- * Messenger Platform quick start tutorial.
- *
- * https://developers.facebook.com/docs/messenger-platform/getting-started/quick-start/
- *
- */
 
 'use strict';
 
@@ -59,7 +44,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
   
   /** UPDATE YOUR VERIFY TOKEN **/
-  const VERIFY_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+  const VERIFY_TOKEN = "ravenloft";
   
   // Parse params from the webhook verification request
   let mode = req.query['hub.mode'];
