@@ -199,7 +199,7 @@ function sendGetStarted(recipientId) {
                 type: "template",
                 payload: {
                     template_type: "button",
-                    text: "Welcome to the Bot Hotel, I can help with any of the three requests below.",
+                    text: "Welcome to the Bot Tim, I can help with any of the three requests below.",
                     buttons: [{
                         type: "postback",
                         title: "Check in",

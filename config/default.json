@@ -2,5 +2,5 @@
     "appSecret": "ba483cc0c33ad5a044e0a275b31b52a9",
     "pageAccessToken": "EAAgmJol7YZCcBABHgpX59IIvdxLqUrm07tQLPDMYjh3jjLqvfNWtQ6ChszjVcZBQqGOQ0TljD85GOTEMdJKuDoLlZBGHFv3seOO7sTw5mY6UnYwTJZAxoQWMwTVQE2MeoKaH3tVrgZBoth1VDraCNRxlWQNun9YAFs9k7chwuMotq2ZCiZByp4L",
     "validationToken": "ravenloft",
-    "serverURL": "https://facebook-app-bot.herokuapp.com//webhook"
+    "serverURL": "https://facebook-app-bot.herokuapp.com/webhook"
 }
