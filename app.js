@@ -216,7 +216,7 @@ function sendGetStarted(recipientId) {
     callSendAPI(messageData);
 }
 
-function handleAttachments(sender_psid, messageAttch) {
+function handleAttachments(senderID, attch) {
     console.log("attachments block");
     // Get the URL of the message attachment
     let attachment_url = attch[0].payload.url;
