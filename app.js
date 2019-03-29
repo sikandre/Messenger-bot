@@ -307,7 +307,7 @@ function callSendAPI(sender_psid, response) {
  *
  */
 function callSendAPI(messageData) {
-    console.log(messageData);
+    console.log("data",messageData);
     request({
         uri: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: PAGE_ACCESS_TOKEN},
