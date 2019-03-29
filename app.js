@@ -127,34 +127,7 @@ function receivedMessage(event) {
                 sendTextMessage(senderID, messageText);
         }
     } else if (message.attachments){
-        console.log("attachments block");
-        let attachment_url = message.attachments[0].payload.url;  
-        console.log("attachment_url",attachment_url)  
-        response = {
-            "attachment": {
-              "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "Is this the right picture?",
-                        "subtitle": "Tap a button to answer.",
-                        "image_url": attachment_url,
-                        "buttons": [
-                            {
-                            "type": "postback",
-                            "title": "Yes!",
-                            "payload": "yes",
-                            },
-                            {
-                            "type": "postback",
-                            "title": "No!",
-                            "payload": "no",
-                            }
-                        ],
-                    }]
-                }
-            }
-        }
+        handleAttachments(senderID, message.attachments);
     }
     
 }
@@ -240,6 +213,38 @@ function sendGetStarted(recipientId) {
         }
     };
     callSendAPI(messageData);
+}
+
+function handleAttachments(sender_psid, messageAttch) {
+    console.log("attachments block");
+    let attachment_url = messageAttch[0].payload.url;  
+    console.log("attachment_url",attachment_url)  
+    response = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Is this the right picture?",
+                    "subtitle": "Tap a button to answer.",
+                    "image_url": attachment_url,
+                    "buttons": [
+                        {
+                        "type": "postback",
+                        "title": "Yes!",
+                        "payload": "yes",
+                        },
+                        {
+                        "type": "postback",
+                        "title": "No!",
+                        "payload": "no",
+                        }
+                    ],
+                }]
+            }
+        }
+    }
+    callSendAPI(sender_psid, response);
 }
 
 /*
