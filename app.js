@@ -277,6 +277,7 @@ function handleAttachments(sender_psid, messageAttch) {
 }
 
 function callSendAPI(sender_psid, response) {
+    console.log("id - responde", sender_psid,response)
     // Construct the message body
     let request_body = {
       "recipient": {
