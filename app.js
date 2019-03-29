@@ -120,14 +120,42 @@ function receivedMessage(event) {
     console.log(JSON.stringify(message));
 
     var messageText = message.text;
+    var attch = message.attachments;
 
     if (messageText) {
         switch (messageText) {
             default:
                 sendTextMessage(senderID, messageText);
         }
-    } else if (message.attachments){
-        handleAttachments(senderID, message.attachments);
+    } else if (attch) {
+        // Get the URL of the message attachment
+        let attachment_url = attach[0].payload.url;
+        response = {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [{
+                "title": "Is this the right picture?",
+                "subtitle": "Tap a button to answer.",
+                "image_url": attachment_url,
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Yes!",
+                    "payload": "yes",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "No!",
+                    "payload": "no",
+                  }
+                ],
+              }]
+            }
+          }
+        }
+        callSendAPI(senderID, response);
     }
     
 }
