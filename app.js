@@ -125,7 +125,7 @@ function receivedMessage(event) {
     if (messageText) {
         switch (messageText) {
             default:
-                sendTextMessage(senderID, messageText);
+                sendTextMessage(senderID, "text: You sent the message: %s Thank you so much",messageText);
         }
     } else if (attch) {
         handleAttachments(senderID, attch)
@@ -159,6 +159,10 @@ function receivedPostback(event) {
         case 'room_service':
             sendTextMessage(senderID, "Room Service");
             break;
+        case 'yes':
+            sendTextMessage(senderID, "You choose yes");
+        case 'no':
+            sendTextMessage(senderID, "You choose no");
         default:
             sendTextMessage(senderID, "Postback called Default");
     }
