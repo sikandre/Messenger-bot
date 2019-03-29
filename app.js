@@ -120,15 +120,14 @@ function receivedMessage(event) {
     console.log(JSON.stringify(message));
 
     var messageText = message.text;
-    var messageAttachments = message.attachment;
 
     if (messageText) {
         switch (messageText) {
             default:
                 sendTextMessage(senderID, messageText);
         }
-    } else if (messageAttachments){
-        let attachment_url = received_message.attachments[0].payload.url;
+    } else if (message.attachments){
+        let attachment_url = message.attachments[0].payload.url;    
         response = {
             "attachment": {
               "type": "template",
