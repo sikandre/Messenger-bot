@@ -156,7 +156,7 @@ function receivedMessage(event) {
             }
           }
         }
-        callSendAPI(senderID, response);
+        callSendAPIAttc(senderID, response);
     }
     
 }
@@ -276,7 +276,7 @@ function handleAttachments(sender_psid, messageAttch) {
     callSendAPI(sender_psid, response);
 }
 
-function callSendAPI(sender_psid, response) {
+function callSendAPIAttc(sender_psid, response) {
     console.log("id - responde", sender_psid,response)
     // Construct the message body
     let request_body = {
