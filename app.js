@@ -131,7 +131,7 @@ function receivedMessage(event) {
         // Get the URL of the message attachment
         console.log("attachments block");
         let attachment_url = attch[0].payload.url;
-        response = {
+        let response = {
           "attachment": {
             "type": "template",
             "payload": {
