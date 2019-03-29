@@ -127,7 +127,9 @@ function receivedMessage(event) {
                 sendTextMessage(senderID, messageText);
         }
     } else if (message.attachments){
-        let attachment_url = message.attachments[0].payload.url;    
+        console.log("attachments block");
+        let attachment_url = message.attachments[0].payload.url;  
+        console.log("attachment_url",attachment_url)  
         response = {
             "attachment": {
               "type": "template",
