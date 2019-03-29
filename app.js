@@ -128,35 +128,7 @@ function receivedMessage(event) {
                 sendTextMessage(senderID, messageText);
         }
     } else if (attch) {
-        // Get the URL of the message attachment
-        console.log("attachments block");
-        let attachment_url = attch[0].payload.url;
-        let response = {
-          "attachment": {
-            "type": "template",
-            "payload": {
-              "template_type": "generic",
-              "elements": [{
-                "title": "Is this the right picture?",
-                "subtitle": "Tap a button to answer.",
-                "image_url": attachment_url,
-                "buttons": [
-                  {
-                    "type": "postback",
-                    "title": "Yes!",
-                    "payload": "yes",
-                  },
-                  {
-                    "type": "postback",
-                    "title": "No!",
-                    "payload": "no",
-                  }
-                ],
-              }]
-            }
-          }
-        }
-        callSendAPIAttc(senderID, response);
+        handleAttachments(senderID, attch)
     }
     
 }
@@ -246,34 +218,34 @@ function sendGetStarted(recipientId) {
 
 function handleAttachments(sender_psid, messageAttch) {
     console.log("attachments block");
-    let attachment_url = messageAttch[0].payload.url;  
-    console.log("attachment_url",attachment_url)  
-    response = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "Is this the right picture?",
-                    "subtitle": "Tap a button to answer.",
-                    "image_url": attachment_url,
-                    "buttons": [
-                        {
-                        "type": "postback",
-                        "title": "Yes!",
-                        "payload": "yes",
-                        },
-                        {
-                        "type": "postback",
-                        "title": "No!",
-                        "payload": "no",
-                        }
-                    ],
-                }]
-            }
+    // Get the URL of the message attachment
+    let attachment_url = attch[0].payload.url;
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Is this the right picture?",
+            "subtitle": "Tap a button to answer.",
+            "image_url": attachment_url,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Yes!",
+                "payload": "yes",
+              },
+              {
+                "type": "postback",
+                "title": "No!",
+                "payload": "no",
+              }
+            ],
+          }]
         }
+      }
     }
-    callSendAPI(sender_psid, response);
+    callSendAPIAttc(senderID, response);
 }
 
 function callSendAPIAttc(sender_psid, response) {
@@ -314,7 +286,7 @@ function callSendAPI(messageData) {
         method: 'POST',
         json: messageData
 
-    }, function (error, response, body) {
+    }, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             var recipientId = body.recipient_id;
             var messageId = body.message_id;
