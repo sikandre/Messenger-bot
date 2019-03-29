@@ -125,7 +125,7 @@ function receivedMessage(event) {
     if (messageText) {
         switch (messageText) {
             default:
-                sendTextMessage(senderID, "text: You sent the message: ",messageText," Thank you so much.");
+                sendTextMessage(senderID, `text: You sent the message:${messageText} Thank you so much.`);
         }
     } else if (attch) {
         handleAttachments(senderID, attch)
