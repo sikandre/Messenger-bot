@@ -127,37 +127,37 @@ function receivedMessage(event) {
             default:
                 sendTextMessage(senderID, messageText);
         }
+    } else if (attch) {
+        // Get the URL of the message attachment
+        console.log("attachments block");
+        let attachment_url = attach[0].payload.url;
+        response = {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [{
+                "title": "Is this the right picture?",
+                "subtitle": "Tap a button to answer.",
+                "image_url": attachment_url,
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Yes!",
+                    "payload": "yes",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "No!",
+                    "payload": "no",
+                  }
+                ],
+              }]
+            }
+          }
+        }
+        callSendAPI(senderID, response);
     }
-    // } else if (attch) {
-    //     // Get the URL of the message attachment
-    //     let attachment_url = attach[0].payload.url;
-    //     response = {
-    //       "attachment": {
-    //         "type": "template",
-    //         "payload": {
-    //           "template_type": "generic",
-    //           "elements": [{
-    //             "title": "Is this the right picture?",
-    //             "subtitle": "Tap a button to answer.",
-    //             "image_url": attachment_url,
-    //             "buttons": [
-    //               {
-    //                 "type": "postback",
-    //                 "title": "Yes!",
-    //                 "payload": "yes",
-    //               },
-    //               {
-    //                 "type": "postback",
-    //                 "title": "No!",
-    //                 "payload": "no",
-    //               }
-    //             ],
-    //           }]
-    //         }
-    //       }
-    //     }
-    //     callSendAPI(senderID, response);
-    // }
     
 }
 
