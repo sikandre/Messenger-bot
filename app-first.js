@@ -7,8 +7,11 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()); // creates express http server
 
-const PAGE_ACCESS_TOKEN = "EAAgmJol7YZCcBABHgpX59IIvdxLqUrm07tQLPDMYjh3jjLqvfNWtQ6ChszjVcZBQqGOQ0TljD85GOTEMdJKuDoLlZBGHFv3seOO7sTw5mY6UnYwTJZAxoQWMwTVQE2MeoKaH3tVrgZBoth1VDraCNRxlWQNun9YAFs9k7chwuMotq2ZCiZByp4L";
-const VERIFY_TOKEN = "ravenloft";
+/**
+ * TODO ADD VALUES HERE
+ */
+const PAGE_ACCESS_TOKEN = "";
+const VERIFY_TOKEN = "";
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
